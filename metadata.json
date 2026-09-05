@@ -1,0 +1,6 @@
+{
+  "name": "BharatLearn - Design The Digital Future",
+  "description": "One Nation. One Learning Future. A next-generation nationwide digital education ecosystem connecting students, teachers, parents, and institutions across Bharat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
