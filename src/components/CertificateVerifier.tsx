@@ -127,7 +127,7 @@ export const CertificateVerifier: React.FC = () => {
                     </div>
                   </div>
                   <span className="text-lg font-black tracking-wider text-white font-display uppercase">
-                    BharatLearn National Credential
+                    <span className="text-bharat">Bharat</span>Learn National Credential
                   </span>
                 </div>
 

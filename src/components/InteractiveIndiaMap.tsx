@@ -49,8 +49,9 @@ export const InteractiveIndiaMap: React.FC = () => {
           <p className="text-sm sm:text-base text-slate-300">
             From Ladakh to Kanyakumari, Gujarat to Arunachal Pradesh — explore how 28 States & 8 Union Territories are decentralizing world-class education.
           </p>
-          <div className="inline-block px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold">
-            ⚠️ Demonstration Prototype Data • For National Competition Showcase
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>28 States & 8 Union Territories Connected</span>
           </div>
         </div>
 
@@ -130,13 +131,13 @@ export const InteractiveIndiaMap: React.FC = () => {
           </div>
 
           {/* Right Column: Selected State Comprehensive Dossier Card */}
-          <div className="lg:col-span-6">
-            <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-6 sm:p-7 shadow-2xl space-y-6">
+          <div className="lg:col-span-6 w-full">
+            <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-4 sm:p-7 shadow-2xl space-y-5 sm:space-y-6">
               
               {/* State Header Title */}
               <div className="flex flex-wrap items-start justify-between gap-3 pb-4 border-b border-slate-800">
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="px-2 py-0.5 rounded text-[10px] uppercase font-bold bg-sky-500/10 text-sky-400 border border-sky-500/30">
                       {activeState.region} India Hub
                     </span>
@@ -147,23 +148,23 @@ export const InteractiveIndiaMap: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-2xl font-black text-emerald-400 font-display">
+                <div className="text-right sm:text-right">
+                  <span className="text-xl sm:text-2xl font-black text-emerald-400 font-display block">
                     {activeState.learners}
                   </span>
-                  <p className="text-xs text-slate-400">Active Students</p>
+                  <p className="text-[11px] sm:text-xs text-slate-400">Active Students</p>
                 </div>
               </div>
 
               {/* Four Key Metrics */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-950 border border-slate-800">
                   <span className="text-[11px] text-slate-400 block mb-1">🏛️ Digital Learning Centers</span>
                   <strong className="text-sm text-slate-100 font-bold">{activeState.learningCenters} Centers</strong>
                   <p className="text-[10px] text-slate-500 mt-0.5">Equipped with BharatNet Fiber</p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-950 border border-slate-800">
                   <span className="text-[11px] text-slate-400 block mb-1">🗣️ Regional Curriculum</span>
                   <strong className="text-sm text-slate-100 font-bold">{activeState.primaryLanguage}</strong>
                   <p className="text-[10px] text-slate-500 mt-0.5">Full bilingual syllabus</p>

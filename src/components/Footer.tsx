@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Sparkles, Globe2, Heart, Shield, Award, MapPin } from 'lucide-react';
+import { Sparkles, Globe2, Shield, Award, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { setActiveTab, setAuthOpen, t } = useApp();
@@ -15,13 +15,13 @@ export const Footer: React.FC = () => {
           {/* Col 1 & 2: Brand & National Mission Statement */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 via-sky-600 to-emerald-600 p-[1.5px]">
-                <div className="w-full h-full bg-slate-950 rounded-[9px] flex items-center justify-center font-black text-amber-400 font-display">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 via-blue-900 to-emerald-600 p-[1.5px]">
+                <div className="w-full h-full bg-slate-950 rounded-[9px] flex items-center justify-center font-black text-bharat font-display">
                   भ
                 </div>
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-display">
-                Bharat<span className="text-amber-400">Learn</span>
+              <span className="text-xl font-bold tracking-tight font-display">
+                <span className="text-bharat">Bharat</span><span className="text-amber-400">Learn</span>
               </span>
             </div>
 
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                 “One Nation. One Learning Future.”
               </p>
               <p className="text-[11px] text-slate-300 leading-relaxed italic">
-                “Learn anywhere. Learn in your language. Build the future of Bharat.”
+                “Learn anywhere. Learn in your language. Build the future of <span className="text-bharat font-semibold">Bharat</span>.”
               </p>
             </div>
 
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 text-[10px] text-emerald-400 font-semibold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Theme: DESIGN THE DIGITAL FUTURE • Competition Showcase</span>
+              <span>National Digital Learning Initiative</span>
             </div>
           </div>
 
@@ -180,11 +180,17 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <p>© 2026 BharatLearn. Built for the “DESIGN THE DIGITAL FUTURE” National Competition.</p>
-          <div className="flex items-center gap-1 text-slate-400">
-            <span>Crafted with</span>
-            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-            <span>for the future innovators of Bharat 🇮🇳</span>
+          <p>© 2026 BharatLearn. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-400">
+            <button onClick={() => setActiveTab('explore')} className="hover:text-amber-400 transition-colors">
+              National Learning Grid
+            </button>
+            <span>•</span>
+            <button onClick={() => setActiveTab('verify')} className="hover:text-amber-400 transition-colors">
+              Verify Credentials
+            </button>
+            <span>•</span>
+            <span>NCERT Aligned</span>
           </div>
         </div>
 

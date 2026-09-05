@@ -1,1 +1,326 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 
+ * ==========================================================================
+ * BHARATLEARN THEME SYSTEM (LIGHT & DARK MODE ARCHITECTURE)
+ * ==========================================================================
+ */
+
+/* Default Dark Mode Color Scheme */
+:root {
+  color-scheme: dark;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Light Mode Core Scheme */
+html.light {
+  color-scheme: light;
+}
+
+html.light,
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Base Surface Overrides in Light Mode */
+html.light .bg-slate-950 {
+  background-color: #f8fafc;
+}
+
+html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/70,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/50 {
+  background-color: rgba(248, 250, 252, 0.95);
+}
+
+/* Primary Cards & Elevated Panels in Light Mode */
+html.light .bg-slate-900,
+html.light .bg-slate-900\/95,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/80 {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+/* Secondary Inset Surfaces in Light Mode */
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/40,
+html.light .bg-slate-900\/30,
+html.light .bg-slate-900\/20 {
+  background-color: #f1f5f9;
+}
+
+/* Sub-pills, badges, and button neutrals */
+html.light .bg-slate-800,
+html.light .bg-slate-800\/90,
+html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/70 {
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/30 {
+  background-color: #f1f5f9;
+}
+
+/* Hover Neutral States in Light Mode */
+html.light .hover\:bg-slate-800:hover,
+html.light .hover\:bg-slate-800\/90:hover,
+html.light .hover\:bg-slate-800\/80:hover,
+html.light .hover\:bg-slate-800\/70:hover,
+html.light .hover\:bg-slate-800\/60:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .hover\:bg-slate-900:hover,
+html.light .hover\:bg-slate-900\/80:hover,
+html.light .hover\:bg-slate-900\/60:hover {
+  background-color: #f1f5f9 !important;
+}
+
+/* Borders in Light Mode */
+html.light .border-slate-800,
+html.light .border-slate-800\/90,
+html.light .border-slate-800\/80,
+html.light .border-slate-800\/70,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/50,
+html.light .border-slate-800\/40,
+html.light .border-slate-800\/30 {
+  border-color: #e2e8f0;
+}
+
+html.light .border-slate-700,
+html.light .border-slate-700\/90,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/60,
+html.light .border-slate-700\/50 {
+  border-color: #cbd5e1;
+}
+
+html.light .divide-slate-800 > * + * {
+  border-color: #e2e8f0;
+}
+
+/* Typography Hierarchy in Light Mode */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a;
+}
+
+html.light .text-slate-100 {
+  color: #0f172a;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b;
+}
+
+html.light .text-slate-300 {
+  color: #334155;
+}
+
+html.light .text-slate-400 {
+  color: #64748b;
+}
+
+html.light .text-slate-500 {
+  color: #64748b;
+}
+
+html.light .text-slate-600 {
+  color: #94a3b8;
+}
+
+/* Ensure standalone text-white turns dark, but preserve text inside colored buttons and accent badges */
+html.light .text-white:not(
+  button.bg-amber-400,
+  button.bg-amber-500,
+  [class*="bg-sky-5"],
+  [class*="bg-sky-6"],
+  [class*="bg-emerald-5"],
+  [class*="bg-emerald-6"],
+  [class*="bg-purple-5"],
+  [class*="bg-purple-6"],
+  [class*="bg-blue-6"],
+  [class*="bg-rose-6"],
+  [class*="bg-gradient-"] *,
+  [class*="bg-amber-500"] *,
+  [class*="bg-amber-400"] *
+) {
+  color: #0f172a;
+}
+
+/* Deep Dark Tinted Containers to Light Vibrant Pastels */
+html.light .bg-sky-950,
+html.light .bg-sky-950\/90,
+html.light .bg-sky-950\/80,
+html.light .bg-sky-950\/60,
+html.light .bg-sky-950\/50,
+html.light .bg-sky-950\/40,
+html.light .bg-sky-950\/30 {
+  background-color: #f0f9ff;
+  border-color: #bae6fd;
+}
+
+html.light .bg-emerald-950,
+html.light .bg-emerald-950\/90,
+html.light .bg-emerald-950\/80,
+html.light .bg-emerald-950\/60,
+html.light .bg-emerald-950\/50,
+html.light .bg-emerald-950\/40,
+html.light .bg-emerald-950\/30 {
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+html.light .bg-purple-950,
+html.light .bg-purple-950\/90,
+html.light .bg-purple-950\/80,
+html.light .bg-purple-950\/60,
+html.light .bg-purple-950\/50,
+html.light .bg-purple-950\/40,
+html.light .bg-purple-950\/30 {
+  background-color: #faf5ff;
+  border-color: #e9d5ff;
+}
+
+html.light .bg-amber-950,
+html.light .bg-amber-950\/90,
+html.light .bg-amber-950\/80,
+html.light .bg-amber-950\/60,
+html.light .bg-amber-950\/50,
+html.light .bg-amber-950\/40,
+html.light .bg-amber-950\/30 {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+}
+
+/* Contrast enhancement for light mode colored badges */
+html.light .text-sky-300,
+html.light .text-sky-400 {
+  color: #0284c7;
+}
+
+/* Authentic Dark Blue Brand Styling for 'Bharat' */
+.text-bharat {
+  color: #002B7F !important; /* National Navy / Dark Blue */
+}
+
+html.dark .text-bharat {
+  color: #3b82f6 !important; /* Deep vibrant blue in dark mode */
+}
+
+html.light .text-emerald-300,
+html.light .text-emerald-400 {
+  color: #059669;
+}
+
+html.light .text-purple-300,
+html.light .text-purple-400 {
+  color: #7c3aed;
+}
+
+html.light .text-amber-300,
+html.light .text-amber-400 {
+  color: #d97706;
+}
+
+/* Form Inputs, Textareas, and Dropdown Menus in Light Mode */
+html.light input:not([type="checkbox"]):not([type="radio"]),
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Header & Accessibility Bar in Light Mode */
+html.light #accessibility-bar {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+}
+
+html.light #mobile-nav-drawer {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+/* Footer in Light Mode */
+html.light footer {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+/* Modal Backdrops & Dialogs in Light Mode */
+html.light div[role="dialog"] > div,
+html.light #search-modal-box,
+html.light #auth-modal-box,
+html.light #quiz-modal-box,
+html.light #certificate-modal-box {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.2) !important;
+}
+
+/* Vector Graphic and SVG Polishing for Light Mode */
+html.light svg path[fill="#0f172a"] {
+  fill: #f1f5f9;
+  fill-opacity: 0.85;
+}
+
+html.light svg path[stroke="#1e293b"] {
+  stroke: #cbd5e1;
+}
+
+html.light .from-slate-950 {
+  --tw-gradient-from: #f8fafc;
+}
+
+html.light .to-slate-900 {
+  --tw-gradient-to: #ffffff;
+}
+
+html.light .via-slate-950\/90 {
+  --tw-gradient-stops: var(--tw-gradient-from), #ffffff 50%, var(--tw-gradient-to);
+}
+
+/* High Contrast Mode Priority */
+html.high-contrast-active,
+html.high-contrast-active body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast-active * {
+  border-color: #ffffff !important;
+}
+

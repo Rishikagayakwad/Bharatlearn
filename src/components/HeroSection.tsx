@@ -69,7 +69,7 @@ export const HeroSection: React.FC = () => {
               </span>
               <span className="text-slate-500">|</span>
               <span className="text-xs font-medium text-slate-300">
-                Design The Digital Future
+                One Nation • One Learning Future
               </span>
             </div>
 
@@ -119,27 +119,27 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Four National Stats Counters */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80">
-              <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
-                <span className="text-2xl font-black text-amber-400 font-display">28</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-4 border-t border-slate-800/80">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
+                <span className="text-xl sm:text-2xl font-black text-amber-400 font-display">28</span>
                 <p className="text-xs font-semibold text-slate-200">States</p>
                 <p className="text-[10px] text-slate-500">Connected Hubs</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
-                <span className="text-2xl font-black text-sky-400 font-display">8</span>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
+                <span className="text-xl sm:text-2xl font-black text-sky-400 font-display">8</span>
                 <p className="text-xs font-semibold text-slate-200">Union Territories</p>
                 <p className="text-[10px] text-slate-500">Universal Access</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
-                <span className="text-2xl font-black text-emerald-400 font-display">100+</span>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
+                <span className="text-xl sm:text-2xl font-black text-emerald-400 font-display">100+</span>
                 <p className="text-xs font-semibold text-slate-200">Learning Paths</p>
                 <p className="text-[10px] text-slate-500">Future Ready Skills</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
-                <span className="text-2xl font-black text-purple-400 font-display">12+</span>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-left">
+                <span className="text-xl sm:text-2xl font-black text-purple-400 font-display">12+</span>
                 <p className="text-xs font-semibold text-slate-200">Indian Languages</p>
                 <p className="text-[10px] text-slate-500">Zero Language Barrier</p>
               </div>
@@ -147,17 +147,17 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Column: Futuristic Interactive India Network Visualization */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto w-full max-w-md aspect-[4/4.6] rounded-3xl p-4 bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-900/90 border border-slate-800 shadow-2xl shadow-sky-950/60 overflow-hidden">
+          <div className="lg:col-span-5 relative w-full">
+            <div className="relative mx-auto w-full max-w-md rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-900/90 border border-slate-800 shadow-2xl shadow-sky-950/60 overflow-hidden">
               
               {/* Header inside visualization */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 text-xs">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-800/80 text-xs">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="font-semibold text-slate-200">Live Bharat Learning Grid</span>
+                  <span className="font-semibold text-slate-200">Live <span className="text-bharat font-bold">Bharat</span> Learning Grid</span>
                 </div>
                 <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full">
                   Real-time Node Mesh
@@ -165,7 +165,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Interactive Vector India Grid */}
-              <div className="relative w-full h-[320px] flex items-center justify-center my-2">
+              <div className="relative w-full h-[260px] sm:h-[310px] flex items-center justify-center my-2">
                 <svg
                   viewBox="0 0 500 480"
                   className="w-full h-full filter drop-shadow-[0_0_15px_rgba(56,189,248,0.15)]"

@@ -27,6 +27,8 @@ export type ActiveNavTab =
   | 'admin'
   | 'certificates';
 
+export type ThemeMode = 'dark' | 'light';
+
 export interface AssessmentData {
   studentName: string;
   classGrade: string;
@@ -51,6 +53,9 @@ interface AppContextType {
   setHighContrast: (val: boolean | ((prev: boolean) => boolean)) => void;
   fontSize: 'normal' | 'large' | 'xlarge';
   setFontSize: (size: 'normal' | 'large' | 'xlarge') => void;
+  theme: ThemeMode;
+  setTheme: (theme: ThemeMode) => void;
+  toggleTheme: () => void;
   
   // Modals
   selectedState: StateData | null;
@@ -78,8 +83,10 @@ interface AppContextType {
   setAssessmentData: (data: AssessmentData | null) => void;
   
   // Toast notifications
-  toast: { message: string; type?: 'info' | 'success' | 'celebrate' } | null;
-  showToast: (message: string, type?: 'info' | 'success' | 'celebrate') => void;
+  toast: { message: string; type?: 'info' | 'success' | 'celebrate' | 'error' } | null;
+  toastMessage: { message: string; type?: 'info' | 'success' | 'celebrate' | 'error' } | null;
+  showToast: (message: string, type?: 'info' | 'success' | 'celebrate' | 'error') => void;
+  hideToast: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -91,6 +98,42 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [lowDataMode, setLowDataMode] = useState<boolean>(false);
   const [highContrast, setHighContrast] = useState<boolean>(false);
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
+
+  // Theme mode: persisted in localStorage with system fallback
+  const [theme, setThemeState] = useState<ThemeMode>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('bharatlearn-theme');
+      if (saved === 'light' || saved === 'dark') {
+        return saved;
+      }
+    }
+    return 'dark';
+  });
+
+  const setTheme = (newTheme: ThemeMode) => {
+    setThemeState(newTheme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('bharatlearn-theme', newTheme);
+    }
+  };
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    showToast(`Switched to ${nextTheme === 'light' ? 'Light' : 'Dark'} Mode`, 'info');
+  };
+
+  // Sync theme class to <html> tag
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light');
+      root.classList.remove('dark');
+    } else {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    }
+  }, [theme]);
 
   // Modals state
   const [selectedState, setSelectedState] = useState<StateData | null>(null);
@@ -256,13 +299,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         streak,
         assessmentData,
         setAssessmentData,
+        theme,
+        setTheme,
+        toggleTheme,
         toast,
-        showToast
+        toastMessage: toast,
+        showToast,
+        hideToast: () => setToast(null)
       }}
     >
       <div
         className={`min-h-screen transition-colors duration-200 ${
-          highContrast ? 'bg-black text-white' : 'bg-slate-950 text-slate-100'
+          highContrast
+            ? 'bg-black text-white'
+            : theme === 'light'
+            ? 'bg-slate-50 text-slate-900'
+            : 'bg-slate-950 text-slate-100'
         } ${fontSize === 'large' ? 'text-lg' : fontSize === 'xlarge' ? 'text-xl' : 'text-base'}`}
       >
         {children}

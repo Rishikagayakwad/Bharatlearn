@@ -88,10 +88,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDictionary> = {
     lowDataMode: 'Low Data Mode',
     highContrast: 'High Contrast',
     fontSize: 'Text Size',
-    prototypeNotice: 'Prototype Demonstration Data • National Competition Entry',
+    prototypeNotice: 'National Digital Learning Ecosystem',
     solveChallengesTitle: 'Solve India’s Biggest Challenges',
     footerRights: 'BharatLearn Ecosystem • Government & School Collaborative Network',
-    footerVision: 'Designed for the Digital Future of Bharat 🇮🇳',
+    footerVision: 'One Nation • One Learning Future',
   },
   hi: {
     navHome: 'मुख्य पृष्ठ',

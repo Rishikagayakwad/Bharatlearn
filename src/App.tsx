@@ -22,10 +22,18 @@ import { Footer } from './components/Footer';
 import { CheckCircle2, Sparkles, X, Info } from 'lucide-react';
 
 const MainContent: React.FC = () => {
-  const { activeTab, toastMessage, hideToast } = useApp();
+  const { activeTab, toastMessage, hideToast, theme, highContrast } = useApp();
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950">
+    <div
+      className={`min-h-screen flex flex-col font-sans overflow-x-hidden w-full transition-colors duration-200 ${
+        highContrast
+          ? 'bg-black text-white'
+          : theme === 'light'
+          ? 'bg-slate-50 text-slate-900 selection:bg-amber-300 selection:text-slate-950'
+          : 'bg-slate-950 text-slate-100 selection:bg-amber-400 selection:text-slate-950'
+      }`}
+    >
       {/* Top Accessibility & Judge Role Bar */}
       <AccessibilityBar />
 
@@ -36,7 +44,7 @@ const MainContent: React.FC = () => {
       {toastMessage && (
         <div
           id="toast-notification-banner"
-          className={`fixed bottom-5 right-5 z-50 p-4 rounded-2xl shadow-2xl flex items-center gap-3 border transition-all animate-in slide-in-from-bottom-5 duration-200 ${
+          className={`fixed bottom-4 left-4 right-4 sm:left-auto sm:right-5 sm:max-w-md z-50 p-4 rounded-2xl shadow-2xl flex items-center gap-3 border transition-all animate-in slide-in-from-bottom-5 duration-200 ${
             toastMessage.type === 'celebrate'
               ? 'bg-gradient-to-r from-amber-500/20 to-emerald-500/20 border-amber-400/60 text-amber-200 backdrop-blur-xl'
               : toastMessage.type === 'error'
@@ -45,14 +53,14 @@ const MainContent: React.FC = () => {
           }`}
         >
           {toastMessage.type === 'celebrate' ? (
-            <Sparkles className="w-5 h-5 text-amber-400 animate-spin" />
+            <Sparkles className="w-5 h-5 text-amber-400 animate-spin shrink-0" />
           ) : (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
           )}
-          <span className="text-xs sm:text-sm font-semibold">{toastMessage.message}</span>
+          <span className="text-xs sm:text-sm font-semibold flex-1 leading-snug">{toastMessage.message}</span>
           <button
             onClick={hideToast}
-            className="p-1 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white"
+            className="p-1 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
@@ -60,7 +68,7 @@ const MainContent: React.FC = () => {
       )}
 
       {/* Main View Router */}
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-hidden">
         {activeTab === 'home' && (
           <>
             <HeroSection />
@@ -77,70 +85,48 @@ const MainContent: React.FC = () => {
         )}
 
         {activeTab === 'explore' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="w-full space-y-4">
             <InteractiveIndiaMap />
-            <div className="mt-12">
-              <FutureSkills />
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'ai-tutor' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <AiTutor />
-          </div>
-        )}
-
-        {activeTab === 'skills' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <FutureSkills />
           </div>
         )}
 
-        {activeTab === 'careers' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <CareerDiscovery />
-          </div>
-        )}
+        {activeTab === 'ai-tutor' && <AiTutor />}
 
-        {activeTab === 'projects' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <ProjectMarketplace />
-          </div>
-        )}
+        {activeTab === 'skills' && <FutureSkills />}
 
-        {activeTab === 'community' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <CommunitySection />
-          </div>
-        )}
+        {activeTab === 'careers' && <CareerDiscovery />}
+
+        {activeTab === 'projects' && <ProjectMarketplace />}
+
+        {activeTab === 'community' && <CommunitySection />}
 
         {activeTab === 'dashboard' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
             <StudentDashboard />
           </div>
         )}
 
         {activeTab === 'teacher' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
             <TeacherDashboard />
           </div>
         )}
 
         {activeTab === 'parent' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
             <ParentPortal />
           </div>
         )}
 
         {activeTab === 'admin' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
             <AdminDashboard />
           </div>
         )}
 
         {activeTab === 'verify' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
             <CertificateVerifier />
           </div>
         )}

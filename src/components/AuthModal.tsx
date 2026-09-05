@@ -59,7 +59,7 @@ export const AuthModal: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-400" />
-              <span className="text-xs font-bold uppercase text-amber-400">BharatLearn Access</span>
+              <span className="text-xs font-bold uppercase"><span className="text-bharat font-black">Bharat</span><span className="text-amber-400">Learn</span> Access</span>
             </div>
             <h3 className="text-2xl font-black text-white font-display mt-0.5">
               {mode === 'login' ? 'Welcome Back' : 'Create Your Learning Passport'}
